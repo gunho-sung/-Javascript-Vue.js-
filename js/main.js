@@ -1,58 +1,48 @@
-const inputText = document.querySelector(".input-text");
-// console.log({inputText});
-// input의 DOM 중 하나인 value 값을 확인 할 수 있음
+const inputText = document.querySelector(".input-text");//변수에 클래스로 연결
 const addButton = document.querySelector(".add-button");
-const list = documnet.querySelector(".list")
+const list = document.querySelector(".list");
 
-const ;oleButtons = document.querySelectorAll(".like");
-//console.log(likeButtons);
+const likeButtons = document.querySelectorAll(".like"); //빈하트 클릭시 채워지게 할려고 선택
 
-likeButtons.forEach(like=> {
-    like.addEventListener("click", () => {
-        console.log('clicked')
-    })
-})
 
-// function(){}
-// ()=>{}
-addButton.addEventListener("click", function() {
 
-    //like
-    const like = document.createElement("span");
-    const likeIcon = document.createElement("i");
-    like.classList.add("like");
-    likeIcon.classList.add("material-icons");
-    likeIcon.innerText = "favorite_border";
-    like.appendChild(likeIcon);
+addButton.addEventListener("click", function () {
+    
+    // like
+    const like = document.createElement("span"); // like 변수에 span 태그생성 기능추가
+    const likeIcon = document.createElement("i");// likeIcon변수에 i태그 생성기능추가
+    like.classList.add("like"); //span 태그에 like 클래스 추가
+    likeIcon.classList.add("material-icons");//클래스 추가
+    likeIcon.innerText = "favorite_border"; //i태그에 아이콘 텍스트명 추가innerText 텍스트 추가함수
+    like.appendChild(likeIcon);//span 태그 자식으로 i태그 추가 생성명령
 
-    //item
-    const item = document.createElement("span");
-    item.classList.add("item");
-    item.innerText = inputText.value;
+    // item
+    const item = document.createElement("span");//item 변수에 span 태그 생성명령 추가
+    item.classList.add("item")
+    item.innerText = inputText.value; //item 변수에 텍스트로 인풋값 출력명령
 
-    //manage
+    // manage
     const manage = document.createElement("span");
     const checkIcon = document.createElement("i");
-    const checkIcon = document.createElement("i");
-    checkIcon.classList.add("marterial-icons", "check");
-    clearIcon.classList.add("marterial-icons", "clear");
-    checkIcon.innerText = "check";
-    clearIcon.innerText = "clear";
+    const clearIcon = document.createElement("i");
     manage.classList.add("manage");
-    manage.appendChild(checkIcon);
-    manage.appendChild(clearIcon);
+    checkIcon.classList.add("material-icons","check");
+    clearIcon.classList.add("material-icons","clear");
+    checkIcon.innerText = "check"
+    clearIcon.innerText = "clear"
+    manage.appendChild(checkIcon)
+    manage.appendChild(clearIcon)
 
     const li = document.createElement("li");
+    
+    // event
+    like.addEventListener("click", () => {
+        console.log("hello");
+    })
 
-    li.appendChild(like);
-    li.appendChild(item);
-    li.appendChild(manage);
-    li.appendChild(li);
 
-
-
-    //console.log(inputText.value) //input에 입력을 하고 추가 버튼을 누르면 value 값이 출력되게 된다.
-    //const li = document.creatrElement("li");
-    //li.innerText = inputText.value;
-    //list.appendChild(li)
+    li.appendChild(like)
+    li.appendChild(item)
+    li.appendChild(manage)
+    list.appendChild(li)
 })
